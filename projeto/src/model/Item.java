@@ -39,7 +39,7 @@ public class Item {
         IdProxiamCena = idProxiamCena;
     }
 
-    public Cena getCenaAtual() {
+    public Cena getCenaAtual(Cena cenaAtual) {
         return CenaAtual;
     }
 

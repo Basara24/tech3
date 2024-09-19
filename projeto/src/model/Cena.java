@@ -27,8 +27,8 @@ public class Cena {
         return Itens;
     }
 
-    public void setItens(List<Item> itens) {
-        Itens = itens;
+    public void setItens() {
+        this.Itens = Itens;
     }
 
     @Override

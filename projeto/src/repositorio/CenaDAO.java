@@ -15,11 +15,12 @@ public class CenaDAO {
         PreparedStatement stmt = conn.prepareStatement(sql);
         stmt.setInt(1, id);
         ResultSet rs = stmt.executeQuery();
-        Cena cena =new Cena();
+        Cena cena = new Cena();
 
         if(rs.next()){
             cena.setIdcena(rs.getInt("id_cena"));
             cena.setDescricao(rs.getNString("descricao"));
+            cena.setItens();
         }
         return cena;
     }
