@@ -4,8 +4,8 @@ public class Item {
     private Integer IdItem;
     private String Nome;
     private String Utilize;
-    private Cena IdProxiamCena;
-    private Cena CenaAtual;
+    private Integer IdProxiamCena;
+    private Integer CenaAtual;
 
     public Integer getIdItem() {
         return IdItem;
@@ -31,19 +31,19 @@ public class Item {
         Utilize = utilize;
     }
 
-    public Cena getIdProxiamCena() {
+    public Integer getIdProxiamCena() {
         return IdProxiamCena;
     }
 
-    public void setIdProxiamCena(Cena idProxiamCena) {
+    public void setIdProxiamCena(Integer idProxiamCena) {
         IdProxiamCena = idProxiamCena;
     }
 
-    public Cena getCenaAtual(Cena cenaAtual) {
+    public Integer getCenaAtual() {
         return CenaAtual;
     }
 
-    public void setCenaAtual(Cena cenaAtual) {
+    public void setCenaAtual(Integer cenaAtual) {
         CenaAtual = cenaAtual;
     }
 

@@ -17,7 +17,7 @@ public class ItemDAO {
 
     public static List<Item> FindItensByScena(Cena cena) throws SQLException {
         Connection connection = Mysql.getConnection();
-        String sql = "select * from id_itens i where id_cena_atual = ?";
+        String sql = "select * from item i where id_cena = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setInt(1, cena.getIdcena());
         ResultSet resultSet = ps.executeQuery();
@@ -28,10 +28,10 @@ public class ItemDAO {
             item.setIdItem(resultSet.getInt("id_item"));
             item.setNome(resultSet.getString("nome"));
 
-            Integer idCenaAtual = resultSet.getInt("id_cena_atual");
-            Cena cenaAtual = CenaDAO.FindCenaById(idCenaAtual);
+            Integer idCenaAtual = resultSet.getInt("id_cena");
 
-            item.getCenaAtual(cenaAtual);
+            item.setCenaAtual(idCenaAtual);
+
             itens.add(item);
 
 

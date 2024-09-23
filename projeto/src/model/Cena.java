@@ -27,7 +27,7 @@ public class Cena {
         return Itens;
     }
 
-    public void setItens() {
+    public void setItens(List<Item> items) {
         this.Itens = Itens;
     }
 
