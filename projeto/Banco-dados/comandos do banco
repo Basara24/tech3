@@ -1,0 +1,90 @@
+create table cena (
+    id_cena int primary key not null,
+    descricao varchar(655)
+);
+create table item (
+    id_item int primary key not null,
+    nome varchar(50) not null,
+    utilize varchar(150),
+    id_proxima_cena int not null,
+    id_cena int,
+    foreign key (id_cena) references cena(id_cena)
+);
+create table use_with(
+    id_cena int,
+    id_item int,
+    foreign key (id_cena) references cena(id_cena),
+    foreign key (id_item) references item(id_item)
+);
+create table saves (
+	id_seve int primary key auto_increment,
+	id_cena_atual int not null,
+	foreign key (id_cena_atual)
+);
+
+insert into cena (Id_cena,descricao) values
+	(1,"Daniel De Sousa está pensando em entrar na vida do crime sendo um ladrão ajude daniel em sua primeira ação
+Daniel está em sua casa planejando onde será seu primeiro assalto, as opções que vieram na sua cabeça são o BANCO da sua cidade (sério ? um banco ?) ou um MERCADO de esquina. onde Daniel irá agir ?
+"),
+	(2,"Após um surto de loucura, Daniel resolve assaltar um banco.
+já em frente ao seu objetivo o banco, como Daniel entra lá dentro ? tendo a opção de entrar pela JANELA-DOS-FUNDOS ou explodindo a PORTA-DA-FRENTE o que Daniel fará ?
+"),
+	(3,"Após entrar pela janela o alarme foi acionado e em segundos os oficiais chegaram para prender Daniel. Sério de quem foi essa ideia de roubar um banco ? GAME OVER"),
+	(4,"Após explodir a porta Daniel não teve nem tempo de entrar no banco que já havia seguranças do local o prendendo sério de quem foi essa ideia de roubar um banco ? GAME OVER
+"),
+	(5,"Ambicioso porém consciente Daniel se vê em frente ao modesto mercado do SR Gercino com um questionamento: como entrar ? ou olhar em volta do lugar Daniel acha algumas formas de entrada sendo elas o ESTOQUE do fundo sendo um lugar mais discreto, a PORTA da mercearia também é uma opção e por ultimo tem a JANELA na lateral do mercado, o que Daniel deve escolher ?"),
+	(6,"Daniel entra pelo estoque de forma furtiva chamando pouca atenção, pulou por cima do muro e abriu o portão de entrega de mercadoria, dentro do estoque é evidente uma câmera em sua direção,Mas Daniel percebe que o NVR da câmera estava desligado, sinal que a
+barra estava limpa para seguir seu plano, porém Daniel tem três alternativas para seguir seu tão sonhado plano.
+Ao pensar bem veio a sua cabeça subir com uma ESCADA para destruir a câmera, IGNORAR a câmera e seguir em frente ou pegar uma CAIXA que está ao seu lado e jogá-la na câmera, o que deve ser feito ?
+"),
+	(7,"assim que Daniel subiu a escada e teve alcance a câmera a escada escorregou o derrubando de cabeça no chão o mesmo que desmaiou só acordando atrás das grades.GAME OVER
+"),
+	(8,"Daniel no reflexo agarra uma caixa média e a arremessa em direção a câmera a acertando e derrubando-a no chão ocasionando em um grande barulho alertando os seguranças de plantão levando a sua apreensão."),
+	(9,"Daniel apenas ignora a câmera e segue para seu objetivo. Ao passar para dentro do mercado começa a soar o alarme dando pouco tempo para pegar algo.
+Na sua frente Daniel vê o caixa com DINHEIRO, algumas caras garrafas de Whisky e vários sacos de BALA de canela. Qual item Daniel deve pegar antes de fugir dos seguranças que já estão cercando o local ?
+"),
+	(10,"Daniel agarra algumas garrafas de whiskys porém no momento da fuga acaba revelando para os seguranças sua localização pelo barulho das garrafas o levando a sua apreensão.GAME OVER
+"),
+	(11,"Daniel sai correndo pela sua rota de fuga no mato e no corre corre acaba perdendo uma boa parte do dinheiro"),
+	(12,"Daniel sai correndo pela sua rota de fuga no mato e em segurança chega a sua casa, porém o que fazer com tantas balas de canelas ?"),
+	(13,"Com um pouco de esforço Daniel consegue abrir a porta de maneira que não chamasse muita atenção porém assim que ela é aberta o alarme do mercado já dispara dando pouco tempo para pensar, Daniel vê a sua volta potes de NUTELLA, um pote de MOEDAS para troco e um CARRINHO de controle remoto. o que ele deve pegar ?"),
+	(14,"Daniel tenta levar o pote de moedas porém é um item muito pesado ele acaba perdendo tempo mais para o levantar e é pego pelos seguranças.GAME OVER
+"),
+	(15,"Daniel já escuta os seguranças chegando e tem que tomar uma decisão rapidamente ele deve se ESCONDER, fugir pela FRENTE ou pelo ESTOQUE ?"),
+	(16,"Se escondendo Daniel acaba passando tanto tempo dentro do armário que acaba adormecendo e sendo acordado pelos funcionários do mercado.GAME OVER
+"),
+	(17,"Em disparada Daniel se joga no mesmo caminho que fez para entrar o que ele não esperava era a polícia do lado de fora o esperando mesmo resistindo acaba preso. GAME OVER
+"),
+	(18,"Daniel anda por uma ligação do mercado para o estoque e rapidamente só vê em frente a um portão sendo assegurado por um enorme segurança em meio a sua própria correria Daniel pensa em DESISTIR e se render, DRIBLAR o segurança ou agarrar uma ESCADA que está ao seu lado e jogá la no segurança e agora ?"),
+	(19,"Daniel vê que não valeu a pena esse seu ato radical e acaba se rendendo e sendo preso. GAME OVER"),
+	(20,"Daniel se expira no seu ídolo Neymar e tenta dar um drible no segurança mas acaba se perdendo e caindo sendo preso. GAME OVER
+"),
+	(21,"Daniel quase sem esperança pega a escada ao seu lado e a arremessou com toda sua força em cima do segurança o derrubando e liberando a sua fuga "),
+
+
+	(22,”Daniel tenta passar pela janela na lateral do mercado só que sem perceber o vizinho fofoqueiro o ve e no mesmo momento ja chama a policia para Daniel’);
+
+INSERT INTO item (id_item, nome, utilize, id_proxima_cena, id_cena) VALUES
+   (1, 'BANCO', 'use', 2, 1),
+   (2, 'MERCADO', 'use', 5, 1),
+   (3, 'JANELA-DOS-FUNDOS', 'use', 3, 2),
+   (4, 'PORTA-DA-FRENTE', 'use', 4, 2),
+   (5, 'ESTOQUE', 'use', 6, 5),
+   (6, 'PORTA', 'use', 13, 5),
+   (7, 'JANELA', 'use', 22, 5),
+   (8, 'ESCADA', 'use', 7, 6),
+   (9, 'IGNORAR', 'use', 9, 6),
+   (10, 'CAIXA', 'use', 8, 6),
+   (11, 'DINHEIRO', 'use', 11, 9),
+   (12, 'WHISKY', 'use', 10, 9),
+   (13, 'BALA', 'use', 12, 9),
+   (14, 'NUTELLA', 'use', 15, 13),
+   (15, 'MOEDAAS', 'use', 14, 13),
+   (16, 'CARRINHO', 'use', 15, 13),
+   (17, 'ESCONDER', 'use', 16, 15),
+   (18, 'FRENTE', 'use', 17, 15),
+   (19, 'ESTOQUE', 'use', 18, 15),
+   (20, 'DESISTIR', 'use', 19, 18),
+   (21, 'DRIBLAR', 'use', 20, 18),
+   (22, 'ESCADA', 'use', 21, 18);
+
