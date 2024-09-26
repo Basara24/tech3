@@ -40,4 +40,20 @@ public class ItemDAO {
 
         return itens;
     }
+    public static Item findItemByNome(String nomeItem) throws SQLException {
+        Connection connection = Mysql.getConnection();
+        String sql = "SELECT * FROM item WHERE nome = ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1, nomeItem);
+        ResultSet resultSet = ps.executeQuery();
+
+        if (resultSet.next()) {
+            Item item = new Item();
+            item.setIdItem(resultSet.getInt("id_item"));
+            item.setNome(resultSet.getString("nome"));
+            item.setCenaAtual(resultSet.getInt("id_proxima_cena"));
+            return item;
+        }
+        return null;
+    }
 }
