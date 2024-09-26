@@ -1,6 +1,5 @@
 package Servisos;
 
-import com.google.gson.Gson;
 import model.Cena;
 import model.Console;
 import model.Item;
@@ -9,7 +8,7 @@ import repositorio.CenaDAO;
 import repositorio.ItemDAO;
 import repositorio.SaveDAO;
 
-public class ComandoServico {
+public class   ComandoServico {
     private String[] comando;
     private Console console;
 
@@ -50,13 +49,17 @@ public class ComandoServico {
         }
     }
 
-    public Console help(){
-        console.setMensagem("\"O objetivo do text adventure é o usuário interagir com os objetos descritos na cena (identificados pelos nomes em letra maiúsculas) para avançar no jogo. Os comandos possíveis são:\\n\" +\n" +
-                "                \"HELP: exbibe o menu de ajuda do jogo\\n\" +\n" +
-                "                \"USE [ITEM]: interage com o item da cena\\n\" +\n" +
-                "                \"SAVE: salva o jogo\\n\" +\n" +
-                "                \"LOAD: carrega um jogo salvo\\n\" +\n" +
-                "                \"RESTART: reinicia o jogo\";");
+    public Console help() {
+        console.setMensagem(
+                "O objetivo do text adventure é o usuário interagir com os objetos descritos na cena " +
+                        "(identificados pelos nomes em letra maiúsculas) para avançar no jogo.\n" +
+                        "Os comandos possíveis são:\n" +
+                        "HELP: exibe o menu de ajuda do jogo\n" +
+                        "USE [ITEM]: interage com o item da cena\n" +
+                        "SAVE: salva o jogo\n" +
+                        "LOAD: carrega um jogo salvo\n" +
+                        "RESTART: reinicia o jogo"
+        );
         return console;
     }
     public Console loadGame() {
